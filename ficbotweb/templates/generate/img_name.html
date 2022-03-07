@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Img->Name Generation{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <body>
+    <img src="{{ char_image }} ">
+    <pre> {{ generated_name }} </pre>
+  </body>
+{% endblock %}

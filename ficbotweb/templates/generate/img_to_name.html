@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Img->Name Generation{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    <label for="image">Image file</label>
+    <input type="file" name="image" id="image" accept="image/jpeg, image/png" required>
+    <label for="diversity">Diversity</label>
+    <input type="number" step="0.1" name="diversity" id="diversity" required>
+    <input type="submit" value="Generate!">
+  </form>
+{% endblock %}
