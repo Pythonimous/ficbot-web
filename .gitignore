@@ -130,3 +130,5 @@ dmypy.json
 
 # Custom
 .idea/
+
+bootstrap-5.0.2-examples/

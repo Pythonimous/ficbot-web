@@ -45,7 +45,7 @@ def img_to_name():
                 logging.error(error)
             """
             return render_template("generate/img_name.html",
-                                   char_image=url_for('static', filename=image.filename),
+                                   char_image=url_for('static', filename=f"images/{image.filename}"),
                                    generated_name=name)
         flash(error)
 
