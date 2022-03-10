@@ -20,10 +20,10 @@ bp = Blueprint('generate', __name__, url_prefix='/generate')
 def img_to_name():
     if request.method == 'POST':
         # check if the post request has the file part
-        if 'image' not in request.files:
+        if 'img-char' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        image = request.files['image']
+        image = request.files['img-char']
         diversity = float(request.form['diversity'])
         error = None
 
