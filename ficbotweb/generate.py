@@ -49,10 +49,12 @@ def name():
         img_path = f"ficbotweb/{data['imageSrc']}"
         # model = data['model']
         diversity = float(data['diversity'])
+        min_name_length = int(data['min_name_length'])
         name = generate_name(img_path,
                              "models/img_name/tf/simple.10-1.98.hdf5",
                              "models/img_name/tf/maps.pkl",
-                             diversity=diversity)
+                             diversity=diversity,
+                             min_name_length=min_name_length)
         return json.dumps({'success': True, 'name': name}), 200, {'ContentType': 'application/json'}
     else:
         return render_template("generation.html")
