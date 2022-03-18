@@ -30,6 +30,7 @@ def render():
 
 @bp.route('/upload_image/', methods=('GET', 'POST'))
 def upload_image():
+    """ Saves the uploaded image and returns in to the client """
     if request.method == 'POST':
         image = request.files['file']
         if image.filename == '':
@@ -44,6 +45,7 @@ def upload_image():
 
 @bp.route('/name/', methods=('GET', 'POST'))
 def name():
+    """ Generates the name based on the request image """
     if request.method == 'POST':
         data = request.json
         img_path = f"ficbotweb/{data['imageSrc']}"
