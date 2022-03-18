@@ -56,10 +56,27 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <div class="row d-flex">
+                <div class="row d-flex mt-3">
+                    <div class="col-md-1">
+                        <h5 class="text-center">Diversity</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="range" class="form-range" min="0" max="2" value="1.0" step="0.1" id="diversity"
+                               oninput="changeDivField();">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id=divField min="0" max="2" value="1.0" step="0.1"
+                               oninput="changeDivSlider();">
+                    </div>
+                </div>
+
+                <div class="row d-flex mt-5">
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control-lg text-center" id="nameField" value="Mikasa Ackerman">
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control-lg text-center" id="nameField"
+                                   value="Mikasa Ackerman" aria-describedby="inputGroup-sizing-lg">
+                        </div>
                     </div>
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
@@ -117,16 +134,7 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex mt-3">
-            <div class="mb-3">
-                <label for="diversity" class="form-label">Diversity</label>
-                <input type="range" class="form-range" min="0" max="2" value="1.0" step="0.1" id="diversity"
-                       oninput="this.nextElementSibling.value = this.value">
 
-                <input type="number" min="0" max="2" value="1.0" step="0.1"
-                       oninput="this.previousElementSibling.value = this.value">
-            </div>
-        </div>
         <div class="row d-flex mt-3">
             <div class="col-md-4">
                 <div class="row d-flex">
@@ -145,8 +153,13 @@
                     </h3>
                 </div>
                 <div class="row d-flex mt-3">
-                    <label for="min-name-length" class="form-label">Minimum Name Length</label>
-                    <input type="number" min="1" value="1" disabled id="min-name-length">
+                    <div class="col-md-5">
+                        <p class="text-left">Minimum Name Length</p>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="number" min="1" value="2" id="min-name-length"
+                    onchange="changeMinNameLenField();">
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -178,6 +191,24 @@
 </body>
 
 <script>
+    var input = document.getElementById("min-name-length")
+    function changeMinNameLenField(){
+        input.setAttribute('value', input.value);
+    }
+</script>
+
+<script>
+    var divSlider = document.getElementById("diversity");
+    var divField = document.getElementById("divField");
+    function changeDivSlider(){
+        divSlider.value = divField.value;
+    }
+    function changeDivField(){
+        divField.value = divSlider.value
+    }
+</script>
+
+<script>
     $(document).ready(function () {
         $('#imageSubButton').on('click', function () {
             var formData = new FormData();
@@ -207,7 +238,8 @@
 
             let r = {
                 imageSrc: $("#charImage").attr('src'),
-                diversity: $("#diversity").attr('value')
+                diversity: $("#diversity").attr('value'),
+                min_name_length: $("#min-name-length").attr('value')
             }
 
             $.ajax({
