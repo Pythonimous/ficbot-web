@@ -35,4 +35,11 @@ export FLASK_ENV=development
 export FLASK_APP=ficbotweb
 flask run
 ```
+### Windows
+In a virtual environment and in a project folder:
+```bash
+set FLASK_ENV=development
+set FLASK_APP=ficbotweb
+flask run
+```
 Go to the address in the terminal (i.e. http://127.0.0.1:5000/) and have fun!
