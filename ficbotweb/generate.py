@@ -10,7 +10,7 @@ from flask import (
 
 import json
 from werkzeug.utils import secure_filename
-from ficbot.tf_models.name.generation import generate_name
+from ficbot.character.name.generation import generate_name
 
 from requests_toolbelt.multipart import decoder
 
@@ -60,3 +60,7 @@ def name():
         return json.dumps({'success': True, 'name': name}), 200, {'ContentType': 'application/json'}
     else:
         return render_template("generation.html")
+print('Hello world!')
+
+print('Would you like to play hopscotch?')
+print('Go to hell you mofo')
