@@ -1,1 +1,1 @@
-web:gunicorn
+web: gunicorn ficbotweb:create_app
