@@ -12,8 +12,6 @@ import json
 from werkzeug.utils import secure_filename
 from ficbot.character.name.generation import generate_name
 
-from requests_toolbelt.multipart import decoder
-
 """
 logging.basicConfig(filename=f"logs/generate/{time.time()}.log",
                     format='%(asctime)s %(message)s',
