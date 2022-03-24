@@ -1,0 +1,6 @@
+# Heres a comment
+*.psd
+*.pdf
+/bootstrap-5.0.2-examples
+/build
+/dist
