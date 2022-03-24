@@ -1,1 +1,1 @@
-web: gunicorn app:ficbotweb
+web:gunicorn
