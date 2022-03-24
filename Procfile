@@ -1,1 +1,1 @@
-web: gunicorn ficbotweb:create_app
+web: gunicorn ficbotweb.wsgi
