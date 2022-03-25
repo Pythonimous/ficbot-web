@@ -1,10 +1,14 @@
 # ficbot-web
 
+<h4><img alt="anime" title="anime" width="20px" src="https://raw.githubusercontent.com/Pythonimous/Pythonimous/main/assets/anime.png">  <a href="https://ficbotweb.herokuapp.com/">An Anime character generator</a>  <img alt="anime" title="anime" width="20px" src="https://raw.githubusercontent.com/Pythonimous/Pythonimous/main/assets/anime.png"></h4>
+<img src="https://raw.githubusercontent.com/Pythonimous/Pythonimous/main/assets/gifs/namegen.gif" width="700" />
+
+------
 An AI-powered Fan Fiction Writing Assistant.
 
 Ficbot is a machine learning-based system that provides various tools to make a good starting point for an aspiring writer when they need a character, but don't know where to start.
 
-Here you will find a **Flask-based web client** for the main application. You can find out more about the main project in **this [repository](https://github.com/Pythonimous/ficbot)**.
+Here you will find the source code for my **Flask-based web client** for the main application. You can find out more about the main project in **this [repository](https://github.com/Pythonimous/ficbot)**, and **[here](https://www.kaggle.com/dataset/37798ba55fed88400b584cd0df4e784317eb7a6708e02fd5a650559fb4598353)** - about the dataset.
 ## Features
 - Image -> Name generator
 
