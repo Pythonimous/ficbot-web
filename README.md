@@ -4,7 +4,7 @@ An AI-powered Fan Fiction Writing Assistant.
 
 Ficbot is a machine learning-based system that provides various tools to make a good starting point for an aspiring writer when they need a character, but don't know where to start.
 
-Here you will find a ***simple Flask-based web client*** for the main application. You can find out more about the main project in **this [repository](https://github.com/Pythonimous/ficbot)**.
+Here you will find a **Flask-based web client** for the main application. You can find out more about the main project in **this [repository](https://github.com/Pythonimous/ficbot)**.
 ## Features
 - Image -> Name generator
 
