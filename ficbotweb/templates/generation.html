@@ -23,17 +23,20 @@
           top: 0;
           left: 0;
           text-align: center;
-          opacity: 0.85;
-          background-color: #fff;
-          z-index: 99;
+          opacity: 0.9;
+          background-color: #ffffff;
+          z-index: 1;
         }
 
         #loading-image {
           position: fixed;
           top: 50%;
           left: 50%;
+          mix-blend-mode: multiply;
           /* bring your own prefixes */
           transform: translate(-50%, -50%);
+          opacity: 1;
+          z-index: 9999;
         }
     </style>
 
@@ -211,7 +214,7 @@
 
 <div id="loading">
     <div class="slds-is-relative">
-        <img id="loading-image" src="static/gifs/loading.gif" alt="Loading..."/>
+        <img id="loading-image" src="static/gifs/loading.gif" alt="Loading..." />
     </div>
 </div>
 
