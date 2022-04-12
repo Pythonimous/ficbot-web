@@ -68,8 +68,9 @@
                          alt="Character Image">
                     <div class="form-group">
                         <label for="charImageFile">Upload character image:</label>
-                        <input type="file" class="form-control-file" id="charImageFile">
+                        <input type="file" accept=".jpg,.png,.gif" class="form-control-file" id="charImageFile">
                         <input id="imageSubButton" type="button" value="Upload!">
+                        <p id="imageUploadError"></p>
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center">
@@ -220,7 +221,38 @@
 
 </body>
 
+<script>
+    document.getElementById("imageSubButton").addEventListener("click", function showFileSize() {
+    // (Can't use `typeof FileReader === "function"` because apparently it
+    // comes back as "object" on some browsers. So just see if it's there
+    // at all.)
+    if (!window.FileReader) { // This is VERY unlikely, browser support is near-universal
+        console.log("The file API isn't supported on this browser yet.");
+        return;
+    }
 
+    var input = document.getElementById('charImageFile');
+    if (!input.files) { // This is VERY unlikely, browser support is near-universal
+        console.error("This browser doesn't seem to support the `files` property of file inputs.");
+    } else if (!input.files[0]) {
+        fileUploadError("Please select a file before clicking 'Load'");
+    } else {
+        var file = input.files[0];
+        if (!(file.name.endsWith('.jpg') || file.name.endsWith('.png') || file.name.endsWith('.gif'))) {
+            fileUploadError("File " + file.name + " is not of an accepted extension! Ficbot only accepts .jpg, .png, .gif.");
+            input.value = "";
+        } else if (file.size > 2 * 1024 * 1024) {
+            fileUploadError("File " + file.name + " is too large! It should be below 2MB in size.");
+            input.value = "";
+        } else { fileUploadError(""); }
+    }
+});
+
+function fileUploadError(text) {
+    var imgUploadError = document.getElementById("imageUploadError");
+    imgUploadError.textContent = text;
+}
+</script>
 
 <script>
     var input = document.getElementById("min-name-length")
