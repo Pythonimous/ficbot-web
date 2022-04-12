@@ -262,7 +262,9 @@
                     $("#charImageFile").val(null);
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
-                    // alert("error");
+                    if (errorThrown != "BAD REQUEST") {
+                        alert(jqXHR.responseText);
+                    }
                 })
                 .always(function () {
                     $("#loading").hide();
