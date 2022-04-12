@@ -8,6 +8,6 @@ setup(
     zip_safe=False,
     install_requires=[
         'flask',
-        'ficbot @ git+https://github.com/Pythonimous/ficbot.git@light',
+        'ficbot @ git+https://github.com/Pythonimous/ficbot.git@main',
     ],
 )
