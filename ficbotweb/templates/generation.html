@@ -242,7 +242,7 @@
             fileUploadError("File " + file.name + " is not of an accepted extension! Ficbot only accepts .jpg, .png, .gif.");
             input.value = "";
         } else if (file.size > 2 * 1024 * 1024) {
-            fileUploadError("File " + file.name + " is too large! It should be below 2MB in size.");
+            fileUploadError("File '" + file.name + "' is too large! (" + Math.round(file.size / (1024 * 1024)) + "MB). It should be below 2MB in size.");
             input.value = "";
         } else { fileUploadError(""); }
     }
@@ -295,7 +295,7 @@ function fileUploadError(text) {
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
                     if (errorThrown != "BAD REQUEST") {
-                        alert(jqXHR.responseText);
+                        fileUploadError(jqXHR.responseText);
                     }
                 })
                 .always(function () {
