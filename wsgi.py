@@ -6,6 +6,7 @@ https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 """
 from ficbotweb import create_app
 
+app = create_app()
+
 if __name__ == "__main__":
-    app = create_app()
     app.run()
