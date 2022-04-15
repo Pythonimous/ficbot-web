@@ -1,12 +1,8 @@
-import functools
-import logging
-import time
-import sys
 import os
 import imghdr
 
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for, jsonify, current_app, abort
+    Blueprint, render_template, request, url_for, current_app
 )
 
 import json
@@ -39,7 +35,8 @@ def render():
 
 @bp.errorhandler(413)
 def too_large(e):
-    return "File is too large. Only .jpg, .png, .gif up to 2MB are allowed.", 413
+    return "File is too large. Only .jpg, .png, .gif up to 2MB are allowed.",\
+           413
 
 
 @bp.route('/upload_image/', methods=('GET', 'POST'))
@@ -51,14 +48,17 @@ def upload_image():
         if filename != '':
             file_ext = os.path.splitext(filename)[1]
             if file_ext not in current_app.config["UPLOAD_EXTENSIONS"]:
-                return "Wrong extension: only .jpg, .png, .gif files are allowed", 415
+                return "Wrong extension: " \
+                       "only .jpg, .png, .gif files are allowed", 415
             if file_ext != validate_image(image.stream):
-                return "Broken file: only valid .jpg, .png, .gif files are allowed.\n" \
+                return "Broken file: " \
+                       "only valid .jpg, .png, .gif files are allowed.\n" \
                        "Please check your image and try again.", 415
 
             image.save(os.path.join('ficbotweb/static/images', filename))
             image_url = url_for('static', filename=f"images/{filename}")
-            return json.dumps({'success': True, 'imgUrl': image_url}), 200, {'ContentType': 'application/json'}
+            return json.dumps({'success': True, 'imgUrl': image_url}), 200,\
+                {'ContentType': 'application/json'}
     else:
         return render_template("generation.html")
 
@@ -77,6 +77,7 @@ def name():
                              "models/img_name/tf/maps.pkl",
                              diversity=diversity,
                              min_name_length=min_name_length)
-        return json.dumps({'success': True, 'name': name}), 200, {'ContentType': 'application/json'}
+        return json.dumps({'success': True, 'name': name}), 200,\
+            {'ContentType': 'application/json'}
     else:
         return render_template("generation.html")
